@@ -1,0 +1,210 @@
+<mxfile host="65bd71144e">
+    <diagram id="cifra-descifra" name="Cifrado y Descifrado AES-128">
+        <mxGraphModel dx="717" dy="651" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1000" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="tC" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=14;" value="CIFRADO   (aes_archivo -e)" vertex="1">
+                    <mxGeometry height="40" width="340" x="40" y="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="tD" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;fontSize=14;" value="DESCIFRADO   (aes_archivo -d)" vertex="1">
+                    <mxGeometry height="40" width="340" x="470" y="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="C0" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Entrada:&#xa;clave numerica (-k)&#xa;archivo de texto (-i entrada.txt)&#xa;archivo de salida (-o cifrado.bin)" vertex="1">
+                    <mxGeometry height="70" width="340" x="40" y="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="C1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Leer el texto desde entrada.txt" vertex="1">
+                    <mxGeometry height="50" width="340" x="40" y="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="C2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="make_key(): construir la clave AES&#xa;de 16 bytes (128 bits) desde el entero -k" vertex="1">
+                    <mxGeometry height="60" width="340" x="40" y="290" as="geometry"/>
+                </mxCell>
+                <mxCell id="C3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Generar un IV aleatorio de 16 bytes&#xa;(RAND_bytes)" vertex="1">
+                    <mxGeometry height="60" width="340" x="40" y="380" as="geometry"/>
+                </mxCell>
+                <mxCell id="C4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Cifrar el texto con AES-128-CBC&#xa;y relleno PKCS#7" vertex="1">
+                    <mxGeometry height="60" width="340" x="40" y="470" as="geometry"/>
+                </mxCell>
+                <mxCell id="C5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Escribir cifrado.bin:&#xa;[ IV (16 bytes) + texto cifrado ]" vertex="1">
+                    <mxGeometry height="60" width="340" x="40" y="560" as="geometry"/>
+                </mxCell>
+                <mxCell id="C6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="Fin: archivo cifrado listo" vertex="1">
+                    <mxGeometry height="50" width="340" x="40" y="650" as="geometry"/>
+                </mxCell>
+                <mxCell id="D0" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Entrada:&#xa;clave numerica (-k)&#xa;archivo cifrado (-i cifrado.bin)&#xa;archivo de salida (-o recuperado.txt)" vertex="1">
+                    <mxGeometry height="70" width="340" x="470" y="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="D1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Leer el archivo cifrado.bin" vertex="1">
+                    <mxGeometry height="50" width="340" x="470" y="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="D2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="make_key(): misma clave AES&#xa;de 16 bytes (128 bits) desde el entero -k" vertex="1">
+                    <mxGeometry height="60" width="340" x="470" y="290" as="geometry"/>
+                </mxCell>
+                <mxCell id="D3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Separar el archivo:&#xa;primeros 16 bytes = IV&#xa;resto = texto cifrado" vertex="1">
+                    <mxGeometry height="60" width="340" x="470" y="380" as="geometry"/>
+                </mxCell>
+                <mxCell id="D4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Descifrar con AES-128-CBC&#xa;usando ese IV y la clave" vertex="1">
+                    <mxGeometry height="60" width="340" x="470" y="470" as="geometry"/>
+                </mxCell>
+                <mxCell id="D5" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Relleno PKCS#7 valido?" vertex="1">
+                    <mxGeometry height="90" width="240" x="520" y="560" as="geometry"/>
+                </mxCell>
+                <mxCell id="D6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" value="Escribir recuperado.txt&#xa;(texto original recuperado)" vertex="1">
+                    <mxGeometry height="60" width="340" x="470" y="700" as="geometry"/>
+                </mxCell>
+                <mxCell id="DN" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Error:&#xa;clave incorrecta&#xa;o archivo corrupto" vertex="1">
+                    <mxGeometry height="80" width="200" x="860" y="565" as="geometry"/>
+                </mxCell>
+                <mxCell id="eC01" edge="1" parent="1" source="C0" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="C1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eC12" edge="1" parent="1" source="C1" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="C2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eC23" edge="1" parent="1" source="C2" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="C3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eC34" edge="1" parent="1" source="C3" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="C4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eC45" edge="1" parent="1" source="C4" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="C5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eC56" edge="1" parent="1" source="C5" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="C6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eD01" edge="1" parent="1" source="D0" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="D1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eD12" edge="1" parent="1" source="D1" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="D2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eD23" edge="1" parent="1" source="D2" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="D3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eD34" edge="1" parent="1" source="D3" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="D4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eD45" edge="1" parent="1" source="D4" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="D5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eDyes" edge="1" parent="1" source="D5" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="D6" value="Si">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eDno" edge="1" parent="1" source="D5" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="DN" value="No">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="estrategia" name="Estrategia alternativa (heuristica + bloques)">
+        <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1300" pageHeight="1400" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="T" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;fontSize=14;" value="BUSQUEDA DE LA CLAVE - Estrategia alternativa: Priorizacion heuristica, y bloques como respaldo" vertex="1">
+                    <mxGeometry height="40" width="720" x="200" y="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="S0" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Inicio:&#xa;mpirun -np 4 busqueda_mpi -s clave -e heuristica -t umbral" vertex="1">
+                    <mxGeometry height="60" width="400" x="360" y="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="S1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="rank 0 cifra el mensaje con la clave secreta&#xa;y lo difunde (MPI_Bcast) a los 4 procesos" vertex="1">
+                    <mxGeometry height="60" width="400" x="360" y="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="F1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="FASE 1 - Priorizacion heuristica (claves probables)" vertex="1">
+                    <mxGeometry height="30" width="400" x="580" y="270" as="geometry"/>
+                </mxCell>
+                <mxCell id="S2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Cada proceso prueba SU parte del diccionario&#xa;(reparto por rondas: j = i*size + rank):&#xa;numeros cortos, potencias de 2 y vecinas, fechas, secuencias" vertex="1">
+                    <mxGeometry height="80" width="440" x="340" y="320" as="geometry"/>
+                </mxCell>
+                <mxCell id="S3" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Algun proceso encontro la clave?&#xa;(Allreduce MIN al fin de ronda)" vertex="1">
+                    <mxGeometry height="110" width="300" x="410" y="440" as="geometry"/>
+                </mxCell>
+                <mxCell id="S4" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Tiempo transcurrido &gt; umbral (-t)?&#xa;(rank 0 decide y avisa con Bcast)" vertex="1">
+                    <mxGeometry height="110" width="300" x="410" y="590" as="geometry"/>
+                </mxCell>
+                <mxCell id="S5" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Quedan rondas del diccionario?" vertex="1">
+                    <mxGeometry height="110" width="300" x="410" y="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="F2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" value="FASE 2 - Distribucion por bloques contiguos (respaldo)" vertex="1">
+                    <mxGeometry height="30" width="400" x="130" y="890" as="geometry"/>
+                </mxCell>
+                <mxCell id="S6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Cada proceso p recorre su bloque en orden:&#xa;desde p*per_proc hasta (p+1)*per_proc - 1&#xa;per_proc = 2^bits / size.  Ej.: la clave 2^54 es la primera del proceso 1" vertex="1">
+                    <mxGeometry height="90" width="440" x="340" y="930" as="geometry"/>
+                </mxCell>
+                <mxCell id="qbTmCDqBDqGFpXAMGm0b-5" edge="1" parent="1" source="S7" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="FOUND">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="S7" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Encontrada?&#xa;(Allreduce MIN cada BATCH de pruebas)" vertex="1">
+                    <mxGeometry height="110" width="300" x="410" y="1060" as="geometry"/>
+                </mxCell>
+                <mxCell id="FOUND" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="El proceso que la encontro envia el texto&#xa;descifrado a rank 0 (MPI_Send / MPI_Recv)" vertex="1">
+                    <mxGeometry height="70" width="320" x="400" y="1205" as="geometry"/>
+                </mxCell>
+                <mxCell id="e01" edge="1" parent="1" source="S0" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="S1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e12" edge="1" parent="1" source="S1" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="S2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e23" edge="1" parent="1" source="S2" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="S3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e34" edge="1" parent="1" source="S3" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="S4" value="No">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e3f" edge="1" parent="1" source="S3" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="FOUND" value="Si">
+                    <mxGeometry relative="1" x="-0.0921" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="940" y="495"/>
+                            <mxPoint x="940" y="1190"/>
+                            <mxPoint x="560" y="1190"/>
+                        </Array>
+                        <mxPoint x="760" y="520" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e45" edge="1" parent="1" source="S4" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="S5" value="No">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e4f2" edge="1" parent="1" source="S4" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="S6" value="Si (pasar a bloques)">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="80" y="645"/>
+                            <mxPoint x="80" y="975"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e52" edge="1" parent="1" source="S5" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="S2" value="Si (seguir diccionario)">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="820" y="795"/>
+                            <mxPoint x="820" y="360"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e56" edge="1" parent="1" source="S5" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="S6" value="No (diccionario agotado)">
+                    <mxGeometry relative="1" x="-0.5" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e67" edge="1" parent="1" source="S6" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="S7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e76" edge="1" parent="1" source="S7" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" target="S6" value="No (siguiente bloque)">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="260" y="1115"/>
+                            <mxPoint x="260" y="1010"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="efe" edge="1" parent="1" source="FOUND" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="END">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="END" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="rank 0 imprime:&#xa;clave, mensaje, fase que la hallo y tiempos" vertex="1">
+                    <mxGeometry height="70" width="320" x="400" y="1310" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
