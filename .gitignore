@@ -1,6 +1,12 @@
 # Prerequisites
 *.d
 
+# Files 
+./bin/
+bin/
+.DS_Store
+test.txt
+
 # Object files
 *.o
 *.ko

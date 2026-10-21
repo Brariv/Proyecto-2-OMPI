@@ -59,8 +59,27 @@ mpicc -std=c11 -O2 -Wall -Wextra src/busqueda_mpi.c -o bin/busqueda_mpi -lcrypto
 ```
 > `busqueda_mpi` depende de `src/aes_comun.h` y `src/diccionario.h`; no hace falta
 > nombrarlos en la línea de compilación porque se incluyen desde el `.c`.
-> En macOS, si OpenSSL es de Homebrew, agregar las rutas:
-> `gcc ... -I$(brew --prefix openssl)/include -L$(brew --prefix openssl)/lib -lcrypto`.
+
+**macOS (Homebrew):** el compilador no encuentra OpenSSL por defecto
+(`fatal error: 'openssl/evp.h' file not found`). Hay que indicarle las rutas con
+`-I` y `-L`:
+```bash
+brew install openssl@3                 # inofensivo si ya está instalado
+OPENSSL=$(brew --prefix openssl@3)      # si no devuelve nada, usar: brew --prefix openssl
+mkdir -p bin
+
+gcc -std=c11 -O2 -Wall -Wextra -I"$OPENSSL/include" -L"$OPENSSL/lib" \
+    src/aes_archivo.c -o bin/aes_archivo -lcrypto
+gcc -std=c11 -O2 -Wall -Wextra -I"$OPENSSL/include" -L"$OPENSSL/lib" \
+    src/busqueda_secuencial.c -o bin/busqueda_secuencial -lcrypto
+mpicc -std=c11 -O2 -Wall -Wextra -I"$OPENSSL/include" -L"$OPENSSL/lib" \
+    src/busqueda_mpi.c -o bin/busqueda_mpi -lcrypto
+```
+Con `make` en macOS, pasar las rutas por variables:
+```bash
+OPENSSL=$(brew --prefix openssl@3)
+make CFLAGS="-std=c11 -O2 -Wall -Wextra -I$OPENSSL/include" LDLIBS="-L$OPENSSL/lib -lcrypto"
+```
 
 Limpiar manualmente (equivalente a `make clean`):
 ```bash
