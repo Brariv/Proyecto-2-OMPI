@@ -1,0 +1,12 @@
+===== INCISO 2a: clave 123456, estrategia ciclica (base), -np 4 =====
+Texto:  Esta es una prueba de proyecto 2
+Frase:  "es una prueba de"
+
+Clave encontrada: 123456
+Mensaje: Esta es una prueba de proyecto 2
+Fase: ciclica
+Ejecucion: paralela con 4 procesos, estrategia ciclica (base)
+Ventana explorada: 2^24 = 16777216 candidatas desde 0
+Candidatas probadas (suma): 129169
+Tiempo de busqueda: 0.048893 segundos
+Tiempo total: 0.053289 segundos

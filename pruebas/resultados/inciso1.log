@@ -1,0 +1,35 @@
+================ INCISO 1: cifrado y descifrado de archivo ================
+Clave de cifrado: 20240926
+
+----- Texto original (/home/claude/proyecto02/pruebas/textos/inciso1_mensaje.txt) -----
+Mensaje confidencial para el Proyecto 02 de Computacion Paralela.
+AES-128 protege este contenido con una clave de 16 bytes.
+
+----- Cifrando -----
+Cifrado AES-128-CBC completado.
+  Clave (128 bits) a partir de : 20240926
+  Entrada  : /home/claude/proyecto02/pruebas/textos/inciso1_mensaje.txt (123 bytes)
+  Salida   : /home/claude/proyecto02/pruebas/resultados/inciso1/mensaje_cifrado.bin (144 bytes, incluye IV de 16 bytes)
+
+----- Texto cifrado (hex, primeros 64 bytes; empieza con el IV) -----
+0000000 a6 1f c2 43 59 dd 82 9a e6 61 86 6c ef 22 57 df
+0000016 4f 30 c6 ef 1c 6d f3 89 5a 18 53 f8 62 ae a2 ea
+0000032 fc 0b 17 12 f2 e1 23 23 2a a8 a5 d6 31 63 1e f6
+0000048 6a 4e 95 ca f7 fb be 08 cf db 47 8f 6f 56 1b a7
+0000064
+
+----- Descifrando (misma clave, archivo de salida distinto) -----
+Descifrado AES-128-CBC completado.
+  Clave (128 bits) a partir de : 20240926
+  Entrada  : /home/claude/proyecto02/pruebas/resultados/inciso1/mensaje_cifrado.bin (144 bytes)
+  Salida   : /home/claude/proyecto02/pruebas/resultados/inciso1/mensaje_recuperado.txt (123 bytes)
+
+----- Texto recuperado (/home/claude/proyecto02/pruebas/resultados/inciso1/mensaje_recuperado.txt) -----
+Mensaje confidencial para el Proyecto 02 de Computacion Paralela.
+AES-128 protege este contenido con una clave de 16 bytes.
+
+----- Verificacion -----
+OK: el texto recuperado es identico al original.
+
+----- Prueba negativa: descifrar con clave incorrecta -----
+OK: con clave incorrecta el descifrado se rechaza (relleno PKCS#7 invalido).

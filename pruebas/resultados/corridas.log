@@ -1,0 +1,90 @@
+### clave=123456 (123456) estrategia=ciclica np=4 bits=56 inicio=0 espacio=completo 2^56
+Clave encontrada: 123456
+Mensaje: Esta es una prueba de proyecto 2
+Fase: ciclica
+Ejecucion: paralela con 4 procesos, estrategia ciclica (base)
+Ventana explorada: 2^56 = 72057594037927936 candidatas desde 0
+Candidatas probadas (suma): 129169
+Tiempo de busqueda: 0.033937 segundos
+Tiempo total: 0.035777 segundos
+
+### clave=123456 (123456) estrategia=bloques np=4 bits=56 inicio=0 espacio=completo 2^56
+Clave encontrada: 123456
+Mensaje: Esta es una prueba de proyecto 2
+Fase: bloques
+Ejecucion: paralela con 4 procesos, estrategia bloques contiguos
+Ventana explorada: 2^56 = 72057594037927936 candidatas desde 0
+Candidatas probadas (suma): 504385
+Tiempo de busqueda: 0.126247 segundos
+Tiempo total: 0.130038 segundos
+
+### clave=123456 (123456) estrategia=heuristica np=4 bits=56 inicio=0 espacio=completo 2^56
+Clave encontrada: 123456
+Mensaje: Esta es una prueba de proyecto 2
+Fase: heuristica (diccionario)
+Ejecucion: paralela con 4 procesos, estrategia heuristica + bloques
+Ventana explorada: 2^56 = 72057594037927936 candidatas desde 0
+Candidatas probadas (suma): 129169
+Tiempo de busqueda: 0.036032 segundos
+Tiempo total: 0.039660 segundos
+
+### clave=18014398509481984 (2^56/4) estrategia=bloques np=4 bits=56 inicio=0 espacio=completo 2^56
+Clave encontrada: 18014398509481984
+Mensaje: Esta es una prueba de proyecto 2
+Fase: bloques
+Ejecucion: paralela con 4 procesos, estrategia bloques contiguos
+Ventana explorada: 2^56 = 72057594037927936 candidatas desde 0
+Candidatas probadas (suma): 12289
+Tiempo de busqueda: 0.006246 segundos
+Tiempo total: 0.013410 segundos
+
+### clave=18014398509481984 (2^56/4) estrategia=heuristica np=4 bits=56 inicio=0 espacio=completo 2^56
+Clave encontrada: 18014398509481984
+Mensaje: Esta es una prueba de proyecto 2
+Fase: heuristica (diccionario)
+Ejecucion: paralela con 4 procesos, estrategia heuristica + bloques
+Ventana explorada: 2^56 = 72057594037927936 candidatas desde 0
+Candidatas probadas (suma): 209785
+Tiempo de busqueda: 0.085462 segundos
+Tiempo total: 0.091181 segundos
+
+### clave=18014398509481984 (2^56/4) estrategia=ciclica np=4 bits=22 inicio=18014398507384832 espacio=ventana 2^22 centrada
+Clave encontrada: 18014398509481984
+Mensaje: Esta es una prueba de proyecto 2
+Fase: ciclica
+Ejecucion: paralela con 4 procesos, estrategia ciclica (base)
+Ventana explorada: 2^22 = 4194304 candidatas desde 18014398507384832
+Candidatas probadas (suma): 2109441
+Tiempo de busqueda: 0.717673 segundos
+Tiempo total: 0.723347 segundos
+
+### clave=18014398509481985 (2^56/4+1) estrategia=bloques np=4 bits=56 inicio=0 espacio=completo 2^56
+Clave encontrada: 18014398509481985
+Mensaje: Esta es una prueba de proyecto 2
+Fase: bloques
+Ejecucion: paralela con 4 procesos, estrategia bloques contiguos
+Ventana explorada: 2^56 = 72057594037927936 candidatas desde 0
+Candidatas probadas (suma): 12290
+Tiempo de busqueda: 0.003994 segundos
+Tiempo total: 0.009350 segundos
+
+### clave=18014398509481985 (2^56/4+1) estrategia=heuristica np=4 bits=56 inicio=0 espacio=completo 2^56
+Clave encontrada: 18014398509481985
+Mensaje: Esta es una prueba de proyecto 2
+Fase: heuristica (diccionario)
+Ejecucion: paralela con 4 procesos, estrategia heuristica + bloques
+Ventana explorada: 2^56 = 72057594037927936 candidatas desde 0
+Candidatas probadas (suma): 209785
+Tiempo de busqueda: 0.057066 segundos
+Tiempo total: 0.059042 segundos
+
+### clave=18014398509481985 (2^56/4+1) estrategia=ciclica np=4 bits=22 inicio=18014398507384833 espacio=ventana 2^22 centrada
+Clave encontrada: 18014398509481985
+Mensaje: Esta es una prueba de proyecto 2
+Fase: ciclica
+Ejecucion: paralela con 4 procesos, estrategia ciclica (base)
+Ventana explorada: 2^22 = 4194304 candidatas desde 18014398507384833
+Candidatas probadas (suma): 2109441
+Tiempo de busqueda: 0.571913 segundos
+Tiempo total: 0.575898 segundos
+

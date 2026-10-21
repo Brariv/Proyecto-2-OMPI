@@ -1,0 +1,18 @@
+===== INCISO 3: comparacion de estrategias, -np 4 =====
+Texto: Esta es una prueba de proyecto 2   Frase: "es una prueba de"
+
+Clave 123456 (pequena):
+  123456      | ciclica                  | t= 0.051004s | ciclica
+  123456      | bloques                  | t= 0.168078s | bloques
+  123456      | heuristica               | t= 0.054274s | heuristica (diccionario)
+Clave 2^56/4 (potencia de dos):
+  2^56/4      | ciclica                  | t= 0.586616s | ciclica
+  2^56/4      | bloques                  | t= 0.006416s | bloques
+  2^56/4      | heuristica               | t= 0.130538s | heuristica (diccionario)
+Clave 2^56/4+1 (vecina de potencia):
+  2^56/4+1    | ciclica                  | t= 0.550865s | ciclica
+  2^56/4+1    | bloques                  | t= 0.005107s | bloques
+  2^56/4+1    | heuristica               | t= 0.056352s | heuristica (diccionario)
+
+Nota: la ciclica con claves gigantes usa ventana centrada 2^22;
+sobre el espacio completo 2^56 seria inviable (proyeccion de anios).

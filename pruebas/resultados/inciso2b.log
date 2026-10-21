@@ -1,0 +1,23 @@
+===== INCISO 2b: clave 2^56/4 = 18014398509481984, -np 4 =====
+Texto:  Esta es una prueba de proyecto 2
+Frase:  "es una prueba de"
+
+--- (1) Estrategia base ciclica, ventana centrada 2^22 ---
+Clave encontrada: 18014398509481984
+Mensaje: Esta es una prueba de proyecto 2
+Fase: ciclica
+Ejecucion: paralela con 4 procesos, estrategia ciclica (base)
+Ventana explorada: 2^22 = 4194304 candidatas desde 18014398507384832
+Candidatas probadas (suma): 2109441
+Tiempo de busqueda: 0.636109 segundos
+Tiempo total: 0.641145 segundos
+
+--- (2) Estrategia por bloques, espacio completo 2^56 ---
+Clave encontrada: 18014398509481984
+Mensaje: Esta es una prueba de proyecto 2
+Fase: bloques
+Ejecucion: paralela con 4 procesos, estrategia bloques contiguos
+Ventana explorada: 2^56 = 72057594037927936 candidatas desde 0
+Candidatas probadas (suma): 12289
+Tiempo de busqueda: 0.004198 segundos
+Tiempo total: 0.009128 segundos

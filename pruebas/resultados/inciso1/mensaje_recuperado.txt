@@ -1,0 +1,2 @@
+Mensaje confidencial para el Proyecto 02 de Computacion Paralela.
+AES-128 protege este contenido con una clave de 16 bytes.

@@ -1,0 +1,10 @@
+clave,etiqueta,estrategia,np,bits,inicio,espacio,tiempo_s,candidatas,fase
+123456,123456,ciclica,4,56,0,completo 2^56,0.052195,129169,ciclica
+123456,123456,bloques,4,56,0,completo 2^56,0.160431,504385,bloques
+123456,123456,heuristica,4,56,0,completo 2^56,0.050261,129169,heuristica (diccionario)
+18014398509481984,2^56/4,bloques,4,56,0,completo 2^56,0.004212,12289,bloques
+18014398509481984,2^56/4,heuristica,4,56,0,completo 2^56,0.080162,209785,heuristica (diccionario)
+18014398509481984,2^56/4,ciclica,4,22,18014398507384832,ventana 2^22 centrada,0.541887,2109441,ciclica
+18014398509481985,2^56/4+1,bloques,4,56,0,completo 2^56,0.004485,12290,bloques
+18014398509481985,2^56/4+1,heuristica,4,56,0,completo 2^56,0.074697,209785,heuristica (diccionario)
+18014398509481985,2^56/4+1,ciclica,4,22,18014398507384833,ventana 2^22 centrada,0.559452,2109441,ciclica
